@@ -69,8 +69,8 @@
       // lib.pipe ./pkgs [
         builtins.readDir
         (builtins.mapAttrs (k: _:
-          pkgs.runCommand "copy-index" {} ''
-            cp ${./pkgs}/${k}/files $out
+          pkgs.runCommand "nix-bin-index" {} ''
+            cp -r ${./pkgs}/${k} $out
           ''))
       ]);
   };
