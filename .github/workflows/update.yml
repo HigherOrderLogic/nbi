@@ -38,7 +38,7 @@ jobs:
 
   generate-files:
     needs: update-lock
-    if: ${{ needs.update-lock.outputs.flake-lock-changed }}
+    if: needs.update-lock.outputs.flake-lock-changed == 'true'
     uses: ./.github/workflows/generate.yml
     permissions:
       contents: write
